@@ -439,8 +439,21 @@ return [
     'rtl' => [
         'enabled' => null,
         'locales' => [
-            'ar', 'arc', 'ckb', 'dv', 'fa', 'ha', 'he', 'khw', 'ks', 'ps',
-            'sd', 'ug', 'ur', 'uz-AF', 'yi',
+            'ar',
+            'arc',
+            'ckb',
+            'dv',
+            'fa',
+            'ha',
+            'he',
+            'khw',
+            'ks',
+            'ps',
+            'sd',
+            'ug',
+            'ur',
+            'uz-AF',
+            'yi',
         ],
     ],
 
@@ -760,7 +773,10 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
+
+        // ==========================
+        // NAVBAR
+        // ==========================
         [
             'type' => 'navbar-search',
             'text' => 'search',
@@ -775,87 +791,396 @@ return [
             'topnav_right' => true,
         ],
 
-        // Sidebar items:
+        // ==========================
+        // RECHERCHE SIDEBAR
+        // ==========================
         [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
+
+        // ==========================
+        // TABLEAU DE BORD
+        // ==========================
+        ['header' => 'TABLEAU DE BORD'],
+
         [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
+            'text' => 'Tableau de bord',
+            'url' => 'dashboard',
+            'icon' => 'bi bi-speedometer2',
+        ],
+
+        // ==========================
+        // ORGANISATION
+        // ==========================
+        ['header' => 'ORGANISATION'],
+
+        [
+            'text' => 'Informations générales',
+            'url' => '/organisations',
+            'icon' => 'bi bi-building',
         ],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'bi bi-file-earmark',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'bi bi-person',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'bi bi-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'bi bi-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'danger',
+            'text' => 'Sites',
             'url' => '#',
+            'icon' => 'bi bi-geo-alt',
         ],
         [
-            'text' => 'warning',
-            'icon_color' => 'warning',
+            'text' => 'Années scolaires',
             'url' => '#',
+            'icon' => 'bi bi-calendar3',
         ],
         [
-            'text' => 'information',
-            'icon_color' => 'info',
+            'text' => 'Périodes scolaires',
             'url' => '#',
+            'icon' => 'bi bi-calendar-range',
+        ],
+
+        // ==========================
+        // STRUCTURE SCOLAIRE
+        // ==========================
+        ['header' => 'STRUCTURE SCOLAIRE'],
+
+        [
+            'text' => 'Cycles',
+            'url' => '#',
+            'icon' => 'bi bi-arrow-repeat',
+        ],
+        [
+            'text' => 'Niveaux',
+            'url' => '#',
+            'icon' => 'bi bi-layers',
+        ],
+        [
+            'text' => 'Classes',
+            'url' => '#',
+            'icon' => 'bi bi-easel',
+        ],
+        [
+            'text' => 'Groupes',
+            'url' => '#',
+            'icon' => 'bi bi-people',
+        ],
+        [
+            'text' => 'Salles',
+            'url' => '#',
+            'icon' => 'bi bi-door-open',
+        ],
+
+        // ==========================
+        // POPULATION SCOLAIRE
+        // ==========================
+        ['header' => 'POPULATION SCOLAIRE'],
+
+        [
+            'text' => 'Élèves / Étudiants',
+            'url' => '#',
+            'icon' => 'bi bi-mortarboard',
+        ],
+        [
+            'text' => 'Parents / Tuteurs',
+            'url' => '#',
+            'icon' => 'bi bi-person-hearts',
+        ],
+        [
+            'text' => 'Enseignants',
+            'url' => '#',
+            'icon' => 'bi bi-person-workspace',
+        ],
+        [
+            'text' => 'Personnel',
+            'url' => '#',
+            'icon' => 'bi bi-person-badge',
+        ],
+        [
+            'text' => 'Admissions',
+            'url' => '#',
+            'icon' => 'bi bi-person-plus',
+        ],
+        [
+            'text' => 'Inscriptions',
+            'url' => '#',
+            'icon' => 'bi bi-journal-check',
+        ],
+
+        // ==========================
+        // ACADÉMIQUE
+        // ==========================
+        ['header' => 'ACADÉMIQUE'],
+
+        [
+            'text' => 'Matières',
+            'url' => '#',
+            'icon' => 'bi bi-book',
+        ],
+        [
+            'text' => 'Programmes',
+            'url' => '#',
+            'icon' => 'bi bi-journal-text',
+        ],
+        [
+            'text' => 'Emplois du temps',
+            'url' => '#',
+            'icon' => 'bi bi-clock',
+        ],
+        [
+            'text' => 'Présences',
+            'url' => '#',
+            'icon' => 'bi bi-calendar-check',
+        ],
+        [
+            'text' => 'Évaluations',
+            'url' => '#',
+            'icon' => 'bi bi-clipboard-check',
+        ],
+        [
+            'text' => 'Notes',
+            'url' => '#',
+            'icon' => 'bi bi-pencil-square',
+        ],
+        [
+            'text' => 'Bulletins',
+            'url' => '#',
+            'icon' => 'bi bi-file-earmark-text',
+        ],
+        [
+            'text' => 'Examens',
+            'url' => '#',
+            'icon' => 'bi bi-award',
+        ],
+
+        // ==========================
+        // VIE SCOLAIRE
+        // ==========================
+        ['header' => 'VIE SCOLAIRE'],
+
+        [
+            'text' => 'Discipline',
+            'url' => '#',
+            'icon' => 'bi bi-shield-check',
+        ],
+        [
+            'text' => 'Incidents',
+            'url' => '#',
+            'icon' => 'bi bi-exclamation-triangle',
+        ],
+        [
+            'text' => 'Activités',
+            'url' => '#',
+            'icon' => 'bi bi-calendar-event',
+        ],
+
+        // ==========================
+        // FINANCES
+        // ==========================
+        ['header' => 'FINANCES'],
+
+        [
+            'text' => 'Frais scolaires',
+            'url' => '#',
+            'icon' => 'bi bi-cash-stack',
+        ],
+        [
+            'text' => 'Facturation',
+            'url' => '#',
+            'icon' => 'bi bi-receipt',
+        ],
+        [
+            'text' => 'Paiements',
+            'url' => '#',
+            'icon' => 'bi bi-credit-card',
+        ],
+        [
+            'text' => 'Impayés',
+            'url' => '#',
+            'icon' => 'bi bi-exclamation-circle',
+        ],
+        [
+            'text' => 'Caisse',
+            'url' => '#',
+            'icon' => 'bi bi-safe',
+        ],
+        [
+            'text' => 'Comptabilité',
+            'url' => '#',
+            'icon' => 'bi bi-calculator',
+        ],
+
+        // ==========================
+        // RESSOURCES HUMAINES
+        // ==========================
+        ['header' => 'RESSOURCES HUMAINES'],
+
+        [
+            'text' => 'Personnel',
+            'url' => '#',
+            'icon' => 'bi bi-people',
+        ],
+        [
+            'text' => 'Contrats',
+            'url' => '#',
+            'icon' => 'bi bi-file-earmark-check',
+        ],
+        [
+            'text' => 'Congés',
+            'url' => '#',
+            'icon' => 'bi bi-calendar-x',
+        ],
+        [
+            'text' => 'Paie',
+            'url' => '#',
+            'icon' => 'bi bi-wallet2',
+        ],
+
+        // ==========================
+        // SERVICES
+        // ==========================
+        ['header' => 'SERVICES'],
+
+        [
+            'text' => 'Bibliothèque',
+            'url' => '#',
+            'icon' => 'bi bi-book-half',
+        ],
+        [
+            'text' => 'Cantine',
+            'url' => '#',
+            'icon' => 'bi bi-cup-hot',
+        ],
+        [
+            'text' => 'Transport scolaire',
+            'url' => '#',
+            'icon' => 'bi bi-bus-front',
+        ],
+        [
+            'text' => 'Santé scolaire',
+            'url' => '#',
+            'icon' => 'bi bi-heart-pulse',
+        ],
+
+        // ==========================
+        // DOCUMENTS
+        // ==========================
+        ['header' => 'DOCUMENTS'],
+
+        [
+            'text' => 'Documents',
+            'url' => '#',
+            'icon' => 'bi bi-folder',
+        ],
+        [
+            'text' => 'Certificats',
+            'url' => '#',
+            'icon' => 'bi bi-file-earmark-medical',
+        ],
+        [
+            'text' => 'Diplômes',
+            'url' => '#',
+            'icon' => 'bi bi-mortarboard-fill',
+        ],
+        [
+            'text' => 'Archives',
+            'url' => '#',
+            'icon' => 'bi bi-archive',
+        ],
+
+        // ==========================
+        // LOGISTIQUE
+        // ==========================
+        ['header' => 'LOGISTIQUE'],
+
+        [
+            'text' => 'Stocks',
+            'url' => '#',
+            'icon' => 'bi bi-box-seam',
+        ],
+        [
+            'text' => 'Achats',
+            'url' => '#',
+            'icon' => 'bi bi-cart',
+        ],
+        [
+            'text' => 'Fournisseurs',
+            'url' => '#',
+            'icon' => 'bi bi-truck',
+        ],
+        [
+            'text' => 'Patrimoine',
+            'url' => '#',
+            'icon' => 'bi bi-building-check',
+        ],
+        [
+            'text' => 'Maintenance',
+            'url' => '#',
+            'icon' => 'bi bi-tools',
+        ],
+
+        // ==========================
+        // COMMUNICATION
+        // ==========================
+        ['header' => 'COMMUNICATION'],
+
+        [
+            'text' => 'Annonces',
+            'url' => '#',
+            'icon' => 'bi bi-megaphone',
+        ],
+        [
+            'text' => 'Messagerie',
+            'url' => '#',
+            'icon' => 'bi bi-chat-dots',
+        ],
+        [
+            'text' => 'Notifications',
+            'url' => '#',
+            'icon' => 'bi bi-bell',
+        ],
+
+        // ==========================
+        // PILOTAGE
+        // ==========================
+        ['header' => 'PILOTAGE'],
+
+        [
+            'text' => 'Tableaux de bord',
+            'url' => '#',
+            'icon' => 'bi bi-bar-chart',
+        ],
+        [
+            'text' => 'Rapports',
+            'url' => '#',
+            'icon' => 'bi bi-file-earmark-bar-graph',
+        ],
+        [
+            'text' => 'Statistiques',
+            'url' => '#',
+            'icon' => 'bi bi-graph-up',
+        ],
+
+        // ==========================
+        // ADMINISTRATION
+        // ==========================
+        ['header' => 'ADMINISTRATION'],
+
+        [
+            'text' => 'Utilisateurs',
+            'url' => '#',
+            'icon' => 'bi bi-people',
+        ],
+        [
+            'text' => 'Rôles & permissions',
+            'url' => '#',
+            'icon' => 'bi bi-shield-lock',
+        ],
+        [
+            'text' => 'Journal d’activité',
+            'url' => '#',
+            'icon' => 'bi bi-journal-text',
+        ],
+        [
+            'text' => 'Paramètres',
+            'url' => '#',
+            'icon' => 'bi bi-gear',
         ],
     ],
 

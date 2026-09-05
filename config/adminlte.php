@@ -822,7 +822,7 @@ return [
         ],
         [
             'text' => 'Sites',
-            'url' => '#',
+            'url' => '/sites',
             'icon' => 'bi bi-geo-alt',
         ],
         [

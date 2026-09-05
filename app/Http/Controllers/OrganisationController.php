@@ -21,9 +21,9 @@ class OrganisationController extends Controller
                     $q->where('code', 'like', '%' . $search . '%')
                         ->orWhere('nom', 'like', '%' . $search . '%');
                 });
-            })
-            ->latest()
-            ->get();
+            })-> latest()
+            ->paginate(10)
+            ->withQueryString();
 
         return view('organisations.index', compact(
             'organisations',
@@ -262,7 +262,6 @@ class OrganisationController extends Controller
                     'success',
                     'Organisation supprimée avec succès.'
                 );
-
         } catch (\Exception $e) {
 
             return redirect()

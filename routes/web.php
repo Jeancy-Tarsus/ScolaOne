@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OrganisationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,3 +23,5 @@ require __DIR__.'/auth.php';
 
 
 Route::resource('organisations', OrganisationController::class);
+
+Route::resource('sites', SiteController::class);

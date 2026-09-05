@@ -337,6 +337,32 @@
 
                     </table>
 
+                    @if($organisations->hasPages())
+
+                        <div class="position-relative p-3">
+
+                            {{-- INFORMATIONS --}}
+                            <div class="text-muted small">
+                                Affichage de
+                                <strong>{{ $organisations->firstItem() }}</strong>
+                                à
+                                <strong>{{ $organisations->lastItem() }}</strong>
+                                sur
+                                <strong>{{ $organisations->total() }}</strong>
+                                organisations
+                            </div>
+
+                            {{-- PAGINATION CENTRÉE --}}
+                            <div class="d-flex justify-content-center mt-2">
+
+                                {{ $organisations->onEachSide(1)->links() }}
+
+                            </div>
+
+                        </div>
+
+                    @endif
+
                 </div>
 
             @else

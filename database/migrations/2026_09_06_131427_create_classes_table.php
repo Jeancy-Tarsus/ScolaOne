@@ -11,6 +11,10 @@ return new class extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('site_id')
+                ->constrained('sites')
+                ->restrictOnDelete();
+
             $table->foreignId('annee_scolaire_id')
                 ->constrained('annees_scolaires')
                 ->restrictOnDelete();

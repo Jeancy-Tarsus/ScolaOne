@@ -867,7 +867,7 @@ return [
 
         [
             'text' => 'Classes',
-            'url' => '#',
+            'url' => '/classes',
             'icon' => 'bi bi-easel',
         ],
 

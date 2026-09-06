@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnneeScolaireController;
+use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\CycleController;
 use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\NiveauController;
@@ -66,4 +67,15 @@ Route::resource('groupes', GroupeController::class)
 Route::resource('salles', SalleController::class)
     ->parameters([
         'salles' => 'salle',
+    ]);
+
+
+
+
+Route::get('/classes/site-data/{site}', [ClasseController::class, 'siteData'])
+    ->name('classes.site-data');
+
+Route::resource('classes', ClasseController::class)
+    ->parameters([
+        'classes' => 'classe',
     ]);

@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class AnneeScolaire extends Model
+class PeriodeScolaire extends Model
 {
     use HasFactory;
 
-    protected $table = 'annees_scolaires';
+    protected $table = 'periodes_scolaires';
 
     protected $fillable = [
-        'organisation_id',
-        'libelle',
+        'annee_scolaire_id',
+        'nom',
+        'code',
         'date_debut',
         'date_fin',
         'active',
@@ -28,15 +28,10 @@ class AnneeScolaire extends Model
         'active' => 'boolean',
     ];
 
-    public function organisation(): BelongsTo
+    public function anneeScolaire(): BelongsTo
     {
-        return $this->belongsTo(Organisation::class);
-    }
-
-    public function periodesScolaires(): HasMany
-    {
-        return $this->hasMany(
-            PeriodeScolaire::class
+        return $this->belongsTo(
+            AnneeScolaire::class
         );
     }
 }

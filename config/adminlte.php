@@ -832,7 +832,7 @@ return [
         ],
         [
             'text' => 'Périodes scolaires',
-            'url' => '#',
+            'url' => '/periodes-scolaires',
             'icon' => 'bi bi-calendar-range',
         ],
 

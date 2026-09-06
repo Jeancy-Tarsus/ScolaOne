@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnneeScolaireController;
 use App\Http\Controllers\OrganisationController;
+use App\Http\Controllers\PeriodeScolaireController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 Route::resource('organisations', OrganisationController::class);
@@ -31,3 +32,11 @@ Route::resource('annees-scolaires', AnneeScolaireController::class)
     ->parameters([
         'annees-scolaires' => 'anneeScolaire',
     ]);
+
+
+Route::resource(
+    'periodes-scolaires',
+    PeriodeScolaireController::class
+)->parameters([
+    'periodes-scolaires' => 'periodeScolaire',
+]);

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnneeScolaireController;
 use App\Http\Controllers\CycleController;
+use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\OrganisationController;
 use App\Http\Controllers\PeriodeScolaireController;
 use App\Http\Controllers\ProfileController;
@@ -46,4 +47,10 @@ Route::resource(
 Route::resource('cycles', CycleController::class)
     ->parameters([
         'cycles' => 'cycle',
+    ]);
+
+
+Route::resource('niveaux', NiveauController::class)
+    ->parameters([
+        'niveaux' => 'niveau',
     ]);

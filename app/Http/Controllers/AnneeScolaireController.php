@@ -50,7 +50,8 @@ class AnneeScolaireController extends Controller
                 'string',
                 'max:100',
                 Rule::unique('annees_scolaires', 'libelle')
-                    ->where(fn ($query) =>
+                    ->where(
+                        fn($query) =>
                         $query->where('organisation_id', $request->organisation_id)
                     ),
             ],
@@ -85,7 +86,8 @@ class AnneeScolaireController extends Controller
                 'string',
                 'max:100',
                 Rule::unique('annees_scolaires', 'libelle')
-                    ->where(fn ($query) =>
+                    ->where(
+                        fn($query) =>
                         $query->where('organisation_id', $request->organisation_id)
                     )
                     ->ignore($anneeScolaire->id),
@@ -108,15 +110,32 @@ class AnneeScolaireController extends Controller
     public function destroy(AnneeScolaire $anneeScolaire)
     {
         try {
+
+            if ($anneeScolaire->periodesScolaires()->exists()) {
+                return redirect()
+                    ->route('annees-scolaires.index')
+                    ->with(
+                        'error',
+                        'Impossible de supprimer cette année scolaire car elle contient encore des périodes scolaires.'
+                    );
+            }
+
             $anneeScolaire->delete();
 
             return redirect()
                 ->route('annees-scolaires.index')
-                ->with('success', 'Année scolaire supprimée avec succès.');
+                ->with(
+                    'success',
+                    'Année scolaire supprimée avec succès.'
+                );
         } catch (\Exception $e) {
+
             return redirect()
                 ->route('annees-scolaires.index')
-                ->with('error', 'Impossible de supprimer cette année scolaire.');
+                ->with(
+                    'error',
+                    'Impossible de supprimer cette année scolaire.'
+                );
         }
     }
 }

@@ -21,7 +21,7 @@ class OrganisationController extends Controller
                     $q->where('code', 'like', '%' . $search . '%')
                         ->orWhere('nom', 'like', '%' . $search . '%');
                 });
-            })-> latest()
+            })->latest()
             ->paginate(10)
             ->withQueryString();
 
@@ -233,8 +233,44 @@ class OrganisationController extends Controller
         try {
 
             /*
-             * Suppression du logo s'il existe
-             */
+         * Vérifier si l'organisation possède encore des sites
+         */
+            if ($organisation->sites()->exists()) {
+                return redirect()
+                    ->route('organisations.index')
+                    ->with(
+                        'error',
+                        'Impossible de supprimer cette organisation car elle possède encore des sites.'
+                    );
+            }
+
+            /*
+         * Vérifier si l'organisation possède encore des cycles
+         */
+            if ($organisation->cycles()->exists()) {
+                return redirect()
+                    ->route('organisations.index')
+                    ->with(
+                        'error',
+                        'Impossible de supprimer cette organisation car elle possède encore des cycles.'
+                    );
+            }
+
+            /*
+         * Vérifier si l'organisation possède encore des années scolaires
+         */
+            if ($organisation->anneesScolaires()->exists()) {
+                return redirect()
+                    ->route('organisations.index')
+                    ->with(
+                        'error',
+                        'Impossible de supprimer cette organisation car elle possède encore des années scolaires.'
+                    );
+            }
+
+            /*
+         * Suppression du logo
+         */
             if ($organisation->logo) {
 
                 if (
@@ -242,19 +278,16 @@ class OrganisationController extends Controller
                         $organisation->logo
                     )
                 ) {
-
                     Storage::disk('public')->delete(
                         $organisation->logo
                     );
                 }
             }
 
-
             /*
-             * Suppression de l'organisation
-             */
+         * Suppression de l'organisation
+         */
             $organisation->delete();
-
 
             return redirect()
                 ->route('organisations.index')

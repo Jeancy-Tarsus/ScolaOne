@@ -173,22 +173,22 @@ class CycleController extends Controller
      */
     public function destroy(Cycle $cycle)
     {
-        try {
-
-            $cycle->delete();
-
-            return redirect()
-                ->route('cycles.index')
-                ->with('success', 'Cycle supprimé avec succès.');
-
-        } catch (\Exception $e) {
-
+        if ($cycle->niveaux()->exists()) {
             return redirect()
                 ->route('cycles.index')
                 ->with(
                     'error',
-                    'Impossible de supprimer ce cycle.'
+                    'Impossible de supprimer ce cycle car il contient encore des niveaux.'
                 );
         }
+
+        $cycle->delete();
+
+        return redirect()
+            ->route('cycles.index')
+            ->with(
+                'success',
+                'Cycle supprimé avec succès.'
+            );
     }
 }

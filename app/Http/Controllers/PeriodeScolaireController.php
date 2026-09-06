@@ -205,15 +205,28 @@ class PeriodeScolaireController extends Controller
     public function destroy(PeriodeScolaire $periodeScolaire)
     {
         try {
+
+            /*
+         * Plus tard, nous ajouterons ici les vérifications
+         * des données qui dépendent de cette période.
+         */
+
             $periodeScolaire->delete();
 
             return redirect()
                 ->route('periodes-scolaires.index')
-                ->with('success', 'Période scolaire supprimée avec succès.');
+                ->with(
+                    'success',
+                    'Période scolaire supprimée avec succès.'
+                );
         } catch (\Exception $e) {
+
             return redirect()
                 ->route('periodes-scolaires.index')
-                ->with('error', 'Impossible de supprimer cette période scolaire.');
+                ->with(
+                    'error',
+                    'Impossible de supprimer cette période scolaire.'
+                );
         }
     }
 }

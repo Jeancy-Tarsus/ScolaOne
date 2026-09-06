@@ -208,16 +208,27 @@ class SiteController extends Controller
     {
         try {
 
+            /*
+         * Plus tard, vérifier ici les données
+         * qui dépendent de ce site.
+         */
+
             $site->delete();
 
             return redirect()
                 ->route('sites.index')
-                ->with('success', 'Site supprimé avec succès.');
+                ->with(
+                    'success',
+                    'Site supprimé avec succès.'
+                );
         } catch (\Exception $e) {
 
             return redirect()
                 ->route('sites.index')
-                ->with('error', 'Impossible de supprimer ce site.');
+                ->with(
+                    'error',
+                    'Impossible de supprimer ce site.'
+                );
         }
     }
 }

@@ -846,26 +846,31 @@ return [
             'url' => '/cycles',
             'icon' => 'bi bi-arrow-repeat',
         ],
+
         [
             'text' => 'Niveaux',
             'url' => '/niveaux',
             'icon' => 'bi bi-layers',
         ],
+
+        [
+            'text' => 'Groupes',
+            'url' => '/groupes',
+            'icon' => 'bi bi-people',
+        ],
+
+        [
+            'text' => 'Salles',
+            'url' => '/salles',
+            'icon' => 'bi bi-door-open',
+        ],
+
         [
             'text' => 'Classes',
             'url' => '#',
             'icon' => 'bi bi-easel',
         ],
-        [
-            'text' => 'Groupes',
-            'url' => '#',
-            'icon' => 'bi bi-people',
-        ],
-        [
-            'text' => 'Salles',
-            'url' => '#',
-            'icon' => 'bi bi-door-open',
-        ],
+
 
         // ==========================
         // POPULATION SCOLAIRE

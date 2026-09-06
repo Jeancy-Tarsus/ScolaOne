@@ -5,33 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Niveau extends Model
+class Groupe extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'cycle_id',
+        'niveau_id',
         'nom',
         'code',
         'ordre',
+        'capacite',
         'description',
         'statut',
     ];
 
     protected $casts = [
         'ordre' => 'integer',
+        'capacite' => 'integer',
         'statut' => 'boolean',
     ];
 
-    public function cycle(): BelongsTo
+    public function niveau(): BelongsTo
     {
-        return $this->belongsTo(Cycle::class);
-    }
-
-    public function groupes(): HasMany
-    {
-        return $this->hasMany(Groupe::class);
+        return $this->belongsTo(Niveau::class);
     }
 }

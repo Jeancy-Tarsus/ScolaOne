@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AnneeScolaireController;
 use App\Http\Controllers\CycleController;
+use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\NiveauController;
 use App\Http\Controllers\OrganisationController;
 use App\Http\Controllers\PeriodeScolaireController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SalleController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,4 +55,15 @@ Route::resource('cycles', CycleController::class)
 Route::resource('niveaux', NiveauController::class)
     ->parameters([
         'niveaux' => 'niveau',
+    ]);
+
+Route::resource('groupes', GroupeController::class)
+    ->parameters([
+        'groupes' => 'groupe',
+    ]);
+
+
+Route::resource('salles', SalleController::class)
+    ->parameters([
+        'salles' => 'salle',
     ]);

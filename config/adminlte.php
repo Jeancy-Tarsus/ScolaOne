@@ -827,7 +827,7 @@ return [
         ],
         [
             'text' => 'Années scolaires',
-            'url' => '#',
+            'url' => '/annees-scolaires',
             'icon' => 'bi bi-calendar3',
         ],
         [

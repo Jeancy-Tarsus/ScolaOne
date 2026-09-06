@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnneeScolaireController;
 use App\Http\Controllers\OrganisationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
@@ -25,3 +26,8 @@ require __DIR__.'/auth.php';
 Route::resource('organisations', OrganisationController::class);
 
 Route::resource('sites', SiteController::class);
+
+Route::resource('annees-scolaires', AnneeScolaireController::class)
+    ->parameters([
+        'annees-scolaires' => 'anneeScolaire',
+    ]);

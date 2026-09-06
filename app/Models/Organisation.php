@@ -42,4 +42,10 @@ class Organisation extends Model
     {
         return $this->hasMany(Site::class);
     }
+
+
+    public function anneesScolaires(): HasMany
+    {
+        return $this->hasMany(AnneeScolaire::class);
+    }
 }

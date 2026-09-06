@@ -843,12 +843,12 @@ return [
 
         [
             'text' => 'Cycles',
-            'url' => '#',
+            'url' => '/cycles',
             'icon' => 'bi bi-arrow-repeat',
         ],
         [
             'text' => 'Niveaux',
-            'url' => '#',
+            'url' => '/niveaux',
             'icon' => 'bi bi-layers',
         ],
         [

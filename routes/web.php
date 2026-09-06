@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnneeScolaireController;
+use App\Http\Controllers\CycleController;
 use App\Http\Controllers\OrganisationController;
 use App\Http\Controllers\PeriodeScolaireController;
 use App\Http\Controllers\ProfileController;
@@ -40,3 +41,9 @@ Route::resource(
 )->parameters([
     'periodes-scolaires' => 'periodeScolaire',
 ]);
+
+
+Route::resource('cycles', CycleController::class)
+    ->parameters([
+        'cycles' => 'cycle',
+    ]);

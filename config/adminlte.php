@@ -1169,13 +1169,18 @@ return [
 
         [
             'text' => 'Utilisateurs',
-            'url' => '#',
+            'url' => '/users',
             'icon' => 'bi bi-people',
         ],
         [
             'text' => 'Rôles & permissions',
-            'url' => '#',
+            'url' => '/roles',
             'icon' => 'bi bi-shield-lock',
+        ],
+        [
+            'text' => 'Permissions',
+            'route' => 'permissions.index',
+            'icon' => 'bi bi-key-fill',
         ],
         [
             'text' => 'Journal d’activité',
